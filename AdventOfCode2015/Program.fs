@@ -21,7 +21,8 @@ let main argv =
         let i = System.Console.ReadLine();
 
         match Int32.TryParse(i) with
-            | true, n -> problems.[n-1] (String.Format(@".\day{0}.txt", n));
+            | true, n when n > 0 && n < 26 -> problems.[n-1] (String.Format(@"day{0}.txt", n));
+            | true, _ -> ignore true;
             | false, _ -> cont <- false;
 
     0; // return an integer exit code;
